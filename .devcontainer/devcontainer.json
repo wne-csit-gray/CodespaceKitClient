@@ -5,8 +5,8 @@
   "image": "mcr.microsoft.com/devcontainers/base:debian",
   "remoteUser": "vscode",
   "workspaceFolder": "/home/vscode",
-  "features": { 
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "customizations": {
     "vscode": {
@@ -19,7 +19,8 @@
               "label": "Open KitClient",
               "dependsOrder": "sequence",
               "dependsOn": [
-                "Setup Student Account"
+                "Setup Student Account",
+                "Close Workspace"
               ],
               "runOptions": {
                 "runOn": "folderOpen"
@@ -28,41 +29,34 @@
                 "reveal": "never"
               }
             },
-  //           // {
-  //           //   "label": "Hide UI Elements",
-  //           //   "type": "process",
-  //           //   "command": "${input:hideUIElements}",
-  //           //   "presentation": {
-  //           //     "reveal": "never"
-  //           //   }
-  //           // },
             {
               "label": "Setup Student Account",
               "type": "shell",
-              "command": "$CODESPACE_VSCODE_FOLDER/$RepositoryName/.devcontainer/setupStudentAcct.bash",
+              "command": "/workspaces/$RepositoryName/.devcontainer/setupStudentAcct.bash",
               "presentation": {
-                "reveal": "always"
+                "reveal": "never"
               }
             },
+            {
+              "label": "Close Workspace",
+              "type": "process",
+              "command": "${input:closeWorkspace}",
+              "presentation": {
+                "reveal": "never"
+              }
+            }
           ],
-  //         "inputs": [
-  //           // {
-  //           //   // Hides some additional VSCode UI elements for which there
-  //           //   // are no settings available.
-  //           //   "id": "hideUIElements",
-  //           //   "type": "command",
-  //           //   "command": "runCommands",
-  //           //   "args": {
-  //           //     "commands": [
-  //           //       "workbench.action.closeAllEditors",
-  //           //       "workbench.action.closeSidebar",
-  //           //       "workbench.action.closePanel"
-  //           //     ]
-  //           //   }
-  //           // }
-  //         ]
-         }
-       }
-     }
+          "inputs": [
+            {
+              // Hides some additional VSCode UI elements for which there
+              // are no settings available.
+              "id": "closeWorkspace",
+              "type": "command",
+              "command": "workbench.action.closeFolder"
+            }
+          ]
+        }
+      }
+    }
   }
 }
