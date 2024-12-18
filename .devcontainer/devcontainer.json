@@ -1,32 +1,33 @@
 {
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "remoteUser": "student",
-  "workspaceFolder": "/home/student",
-  // "features": {
-  //   "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  // "build": {
+  //   "dockerfile": "Dockerfile"
   // },
-  // "customizations": {
-  //   "vscode": {
-  //     "settings": {
-  //       "workbench.startupEditor": "none",
-  //       "tasks": {
-  //         "version": "2.0.0",
-  //         "tasks": [
-  //           {
-  //             "label": "Open KitClient",
-  //             "dependsOrder": "sequence",
-  //             "dependsOn": [
-  //               "Setup Student Account"
-  //             ],
-  //             "runOptions": {
-  //               "runOn": "folderOpen"
-  //             },
-  //             "presentation": {
-  //               "reveal": "never"
-  //             }
-  //           },
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/home/vscode",
+  "features": { 
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.startupEditor": "none",
+        "tasks": {
+          "version": "2.0.0",
+          "tasks": [
+            {
+              "label": "Open KitClient",
+              "dependsOrder": "sequence",
+              "dependsOn": [
+                "Setup Student Account"
+              ],
+              "runOptions": {
+                "runOn": "folderOpen"
+              },
+              "presentation": {
+                "reveal": "never"
+              }
+            },
   //           // {
   //           //   "label": "Hide UI Elements",
   //           //   "type": "process",
@@ -35,15 +36,15 @@
   //           //     "reveal": "never"
   //           //   }
   //           // },
-  //           {
-  //             "label": "Setup Student Account",
-  //             "type": "shell",
-  //             "command": "./.devcontainer/setupStudentAcct.bash",
-  //             "presentation": {
-  //               "reveal": "never"
-  //             }
-  //           },
-  //         ],
+            {
+              "label": "Setup Student Account",
+              "type": "shell",
+              "command": "$CODESPACE_VSCODE_FOLDER/$RepositoryName/.devcontainer/setupStudentAcct.bash",
+              "presentation": {
+                "reveal": "always"
+              }
+            },
+          ],
   //         "inputs": [
   //           // {
   //           //   // Hides some additional VSCode UI elements for which there
@@ -60,8 +61,8 @@
   //           //   }
   //           // }
   //         ]
-  //       }
-  //     }
-  //   }
-  // }
+         }
+       }
+     }
+  }
 }

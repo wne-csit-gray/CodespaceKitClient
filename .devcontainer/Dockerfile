@@ -1,5 +1,5 @@
-#FROM mcr.microsoft.com/devcontainers/base:debian
-FROM mcr.microsoft.com/devcontainers/universal:2-linux
+FROM mcr.microsoft.com/devcontainers/base:debian
+#FROM mcr.microsoft.com/devcontainers/universal:2-linux
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -16,7 +16,7 @@ ENV PASSWD=student
 RUN useradd \
     -m $USERNAME -p "$(openssl passwd -1 $PASSWD)" \
     -s /bin/bash \
-    -G sudo,docker
+    -G sudo
 
 # Stuff to reduce image size.
 USER root

@@ -2,7 +2,9 @@
 
 # Link the users home directory into a subdirectory of workspace.
 # This will allow dirs in the home directory to bind mount into docker containers.
-ln -s /home/$USERNAME /workspaces
+if [ ! -f /workspaces/$USER ]; then
+    ln -s /home/$USER /workspaces/$USER
+fi
 
 # Do some basic git configuration.
 git config --global credential.helper store \
