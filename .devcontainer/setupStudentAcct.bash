@@ -7,7 +7,7 @@ if [ ! -d /workspaces/$USER ]; then
 fi
 
 # Do some basic git configuration.
-if [ -z "$(git config --global core.editor) ]; then
+if [ -z "$(git config --global core.editor)" ]; then
   git config --global credential.helper store \
    && git config --global merge.conflictstyle diff3 \
    && git config --global merge.tool vscode \
