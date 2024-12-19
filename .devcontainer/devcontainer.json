@@ -5,11 +5,10 @@
   "image": "mcr.microsoft.com/devcontainers/base:debian",
   "remoteUser": "vscode",
   "workspaceFolder": "/home/vscode",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
-  "postCreateCommand": "/workspaces/$RepositoryName/.devcontainer/setupUser.bash",
-  "customizations": {
+  // "features": {
+  //   "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  // },
+   "customizations": {
     "vscode": {
       "settings": {
         "workbench.startupEditor": "none",
@@ -20,14 +19,14 @@
             {
               "label": "Setup Kit",
               "type": "shell",
-              "command": "/workspaces/$RepositoryName/.devcontainer/setupKit.bash",
+              "command": "/workspaces/$RepositoryName/.devcontainer/setup.bash",
               "runOptions": {
                 "runOn": "folderOpen"
               },
-              "presentation": {
-                "reveal": "never",
-                "close": true
-              }
+              // "presentation": {
+              //   "reveal": "never",
+              //   "close": true
+              // }
             }
           ]
         }

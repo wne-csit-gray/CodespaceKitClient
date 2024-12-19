@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# This script runs everytime a folder is opened.  
-# So, only do the setup if the kit has not already been setup.
-#   Note: the .kitIsSetup file is created by the emptyWorkspace.bash script
-#         which is run by a task on folderOpen in the .devcontainer.json file.
-if [ ! -f /home/$USER/.kitIsSetup ]; then
+# Setup the user if it has not been setup already.
+if [ ! -d /workspaces/$USER ]; then
 
   # Link the users home directory into a subdirectory of workspace.
   # This will allow dirs in the home directory to bind mount into docker containers.
@@ -22,6 +19,16 @@ if [ ! -f /home/$USER/.kitIsSetup ]; then
    && git config --global safe.directory '*' \
    && echo "" >> .bashrc \
    && echo "source /usr/share/bash-completion/completions/git" >> .bashrc 
+
+  # Reopen VSCode without any folders open.
+  #code -r
 fi
 
-
+# If the folder that was opened is a kit (.kit exists)
+# install the kit features.
+if [ -d .kit ]; then
+  echo "Its a kit!"
+  #.kit/install-features-into-client/run.sh
+else
+  echo "Its not a kit!"
+fi
