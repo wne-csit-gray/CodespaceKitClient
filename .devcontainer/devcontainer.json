@@ -23,10 +23,10 @@
               "runOptions": {
                 "runOn": "folderOpen"
               },
-              "presentation": {
-                "reveal": "never",
-                "close": true
-              }
+              // "presentation": {
+              //   "reveal": "never",
+              //   "close": true
+              // }
             },
             {
               "label": "Install Kit Features",
