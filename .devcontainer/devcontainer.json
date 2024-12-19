@@ -1,7 +1,4 @@
 {
-  // "build": {
-  //   "dockerfile": "Dockerfile"
-  // },
   "image": "mcr.microsoft.com/devcontainers/base:debian",
   "remoteUser": "vscode",
   "workspaceFolder": "/home/vscode",

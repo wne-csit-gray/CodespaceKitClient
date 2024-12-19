@@ -2,9 +2,6 @@
 
 # Setup the user if it has not been setup already.
 if [ ! -d /workspaces/$USER ]; then
-
-  echo "Setting up the user."
-
   # Link the users home directory into a subdirectory of workspace.
   # This will allow dirs in the home directory to bind mount into docker containers.
   ln -s /home/$USER /workspaces/$USER
@@ -21,8 +18,6 @@ if [ ! -d /workspaces/$USER ]; then
    && echo "" >> "/home/$USER/.bashrc" \
    && echo "source /usr/share/bash-completion/completions/git" >> "/home/$USER/.bashrc" 
 
-  # Reopen VSCode without any folders open.
+  # Reopen VSCode without any folders open so they don't see their home directory contents.
   code -r
-else 
-  echo "User is already setup."
 fi
