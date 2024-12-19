@@ -13,6 +13,7 @@
       "settings": {
         "workbench.startupEditor": "none",
         "github.codespaces.devcontainerChangedNotificationStyle": "none",
+        "terminal.integrated.hideOnStartup": "always",
         "tasks": {
           "version": "2.0.0",
           "tasks": [
@@ -29,7 +30,7 @@
               }
             },
             {
-              "label": "Install Kit Features",
+              "label": "Kitty",
               "type": "shell",
               "command": "/workspaces/$RepositoryName/.devcontainer/installKitFeatures.bash",
               "runOptions": {
@@ -37,8 +38,10 @@
               },
               "presentation": {
                 "reveal": "always",
-                "panel": "shared",
-                "echo": "false"
+                "panel": "new",
+                "echo": false,
+                "showReuseMessage": false,
+                "focus": true
               }
             }
           ]

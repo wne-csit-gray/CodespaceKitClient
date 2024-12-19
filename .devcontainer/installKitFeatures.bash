@@ -3,8 +3,8 @@
 # If the folder that was opened is a kit (.kit exists)
 # install the kit features.
 if [ -d .kit ]; then
-  echo "Its a kit!"
-  #.kit/install-features-into-client/run.sh
-else
-  echo "Its not a kit!"
+  .kit/install-features-into-client/run.sh
 fi
+
+# Run a new shell to pickup the changes.
+exec /bin/bash

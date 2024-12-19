@@ -21,12 +21,8 @@ if [ ! -d /workspaces/$USER ]; then
    && echo "" >> "/home/$USER/.bashrc" \
    && echo "source /usr/share/bash-completion/completions/git" >> "/home/$USER/.bashrc" 
 
-  # Install a global git hook that will install the kit features after it is cloned.
-  sudo cp /workspaces/$RepositoryName/.devcontainer/install-kit-features-into-client.sh /usr/share/git-core/templates/hooks/post-checkout
-  sudo chmod +x /usr/share/git-core/templates/hooks/post-checkout
-
   # Reopen VSCode without any folders open.
-  #code -r
+  code -r
 else 
   echo "User is already setup."
 fi
