@@ -5,6 +5,7 @@ SCRIPT_NAME="$( basename -- "${SCRIPT_PATH}" )"
 SCRIPT_DIR="$( cd -- "$( dirname -- "${SCRIPT_PATH}" )" &> /dev/null && pwd )"
 
 main() {
+    echo "it is running"
     exit-if-not-installed-as-a-git-hook
     uninstall-this-git-hook
     install-kit-features-into-client

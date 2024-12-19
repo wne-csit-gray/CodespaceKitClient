@@ -8,6 +8,7 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
+  "postCreateCommand": "/workspaces/$RepositoryName/.devcontainer/setupUser.bash",
   "customizations": {
     "vscode": {
       "settings": {
@@ -16,48 +17,19 @@
         "tasks": {
           "version": "2.0.0",
           "tasks": [
-            // {
-            //   "label": "Open KitClient",
-            //   "dependsOrder": "sequence",
-            //   "dependsOn": [
-            //     "Setup Student Account",
-            //   ],
-            //   "runOptions": {
-            //     "runOn": "folderOpen"
-            //   },
-            //   "presentation": {
-            //     "reveal": "never"
-            //   }
-            // },
             {
-              "label": "Setup KitClient",
+              "label": "Setup Kit",
               "type": "shell",
-              "command": "/workspaces/$RepositoryName/.devcontainer/setup.bash",
+              "command": "/workspaces/$RepositoryName/.devcontainer/setupKit.bash",
               "runOptions": {
                 "runOn": "folderOpen"
               },
               "presentation": {
-                "reveal": "never"
+                "reveal": "never",
+                "close": true
               }
-            },
-            // {
-            //   "label": "Close Workspace",
-            //   "type": "process",
-            //   "command": "${input:closeWorkspace}",
-            //   "presentation": {
-            //     "reveal": "never"
-            //   }
-            // }
+            }
           ]
-          // "inputs": [
-          //   {
-          //     // Hides some additional VSCode UI elements for which there
-          //     // are no settings available.
-          //     "id": "closeWorkspace",
-          //     "type": "command",
-          //     "command": "workbench.action.closeFolder"
-          //   }
-          // ]
         }
       }
     }
