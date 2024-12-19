@@ -14,7 +14,6 @@ if [ ! -d /workspaces/$USER ]; then
    && git config --global mergetool.vscode.cmd 'code --wait $MERGED' \
    && git config --global merge.tool vscode \
    && git config --global mergetool.keepBackup false \
-   && git config --global mergetool.vscode.cmd 'code --wait $MERGED' \
    && git config --global core.editor "nano" \
    && git config --global pull.ff only \
    && git config --global init.defaultBranch main \
