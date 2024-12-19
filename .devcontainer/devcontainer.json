@@ -12,16 +12,27 @@
     "vscode": {
       "settings": {
         "workbench.startupEditor": "none",
+        "github.codespaces.devcontainerChangedNotificationStyle": "none",
         "tasks": {
           "version": "2.0.0",
           "tasks": [
+            // {
+            //   "label": "Open KitClient",
+            //   "dependsOrder": "sequence",
+            //   "dependsOn": [
+            //     "Setup Student Account",
+            //   ],
+            //   "runOptions": {
+            //     "runOn": "folderOpen"
+            //   },
+            //   "presentation": {
+            //     "reveal": "never"
+            //   }
+            // },
             {
-              "label": "Open KitClient",
-              "dependsOrder": "sequence",
-              "dependsOn": [
-                "Setup Student Account",
-                "Close Workspace"
-              ],
+              "label": "Setup KitClient",
+              "type": "shell",
+              "command": "/workspaces/$RepositoryName/.devcontainer/setup.bash",
               "runOptions": {
                 "runOn": "folderOpen"
               },
@@ -29,32 +40,24 @@
                 "reveal": "never"
               }
             },
-            {
-              "label": "Setup Student Account",
-              "type": "shell",
-              "command": "/workspaces/$RepositoryName/.devcontainer/setupStudentAcct.bash",
-              "presentation": {
-                "reveal": "never"
-              }
-            },
-            {
-              "label": "Close Workspace",
-              "type": "process",
-              "command": "${input:closeWorkspace}",
-              "presentation": {
-                "reveal": "never"
-              }
-            }
-          ],
-          "inputs": [
-            {
-              // Hides some additional VSCode UI elements for which there
-              // are no settings available.
-              "id": "closeWorkspace",
-              "type": "command",
-              "command": "workbench.action.closeFolder"
-            }
+            // {
+            //   "label": "Close Workspace",
+            //   "type": "process",
+            //   "command": "${input:closeWorkspace}",
+            //   "presentation": {
+            //     "reveal": "never"
+            //   }
+            // }
           ]
+          // "inputs": [
+          //   {
+          //     // Hides some additional VSCode UI elements for which there
+          //     // are no settings available.
+          //     "id": "closeWorkspace",
+          //     "type": "command",
+          //     "command": "workbench.action.closeFolder"
+          //   }
+          // ]
         }
       }
     }
