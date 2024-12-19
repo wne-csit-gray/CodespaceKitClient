@@ -17,16 +17,27 @@
           "version": "2.0.0",
           "tasks": [
             {
-              "label": "Setup Kit",
+              "label": "Setup User",
               "type": "shell",
-              "command": "/workspaces/$RepositoryName/.devcontainer/setup.bash",
+              "command": "/workspaces/$RepositoryName/.devcontainer/setupUser.bash",
               "runOptions": {
                 "runOn": "folderOpen"
               },
-              // "presentation": {
-              //   "reveal": "never",
-              //   "close": true
-              // }
+              "presentation": {
+                "reveal": "never",
+                "close": true
+              }
+            },
+            {
+              "label": "Install Kit Features",
+              "type": "shell",
+              "command": "/workspaces/$RepositoryName/.devcontainer/installKitFeatures.bash",
+              "runOptions": {
+                "runOn": "folderOpen"
+              },
+              "presentation": {
+                "reveal": "always"
+              }
             }
           ]
         }
