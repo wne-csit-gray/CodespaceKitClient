@@ -14,12 +14,13 @@ if [ ! -d /workspaces/$USER ]; then
    && git config --global mergetool.vscode.cmd 'code --wait $MERGED' \
    && git config --global merge.tool vscode \
    && git config --global mergetool.keepBackup false \
+   && git config --global mergetool.vscode.cmd 'code --wait $MERGED' \
    && git config --global core.editor "nano" \
    && git config --global pull.ff only \
    && git config --global init.defaultBranch main \
    && git config --global safe.directory '*' \
-   && echo "" >> "/home/$USER/bashrc" \
-   && echo "source /usr/share/bash-completion/completions/git" >> "/home/$USER/bashrc" 
+   && echo "" >> "/home/$USER/.bashrc" \
+   && echo "source /usr/share/bash-completion/completions/git" >> "/home/$USER/.bashrc" 
 
   # Install a global git hook that will install the kit features after it is cloned.
   sudo cp /workspaces/$RepositoryName/.devcontainer/install-kit-features-into-client.sh /usr/share/git-core/templates/hooks/post-checkout
