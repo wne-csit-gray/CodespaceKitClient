@@ -3,7 +3,7 @@
   "remoteUser": "vscode",
   "workspaceFolder": "/home/vscode",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "docker-in-docker": "latest"
   },
   "customizations": {
     "vscode": {
